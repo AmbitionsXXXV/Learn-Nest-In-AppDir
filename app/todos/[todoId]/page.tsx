@@ -15,6 +15,8 @@ const fetchTodo = async (todoId: string) => {
     `https://jsonplaceholder.typicode.com/todos/${todoId}`,
     { next: { revalidate: 60 } }
   )
+  // { next: { revalidate: 60 } }，请求数据缓存60s
+  // 等同于pageDir中getStaticProps开启revalidate
   const todo: Todo = await res.json()
 
   return todo

@@ -4,6 +4,9 @@ import { Todo } from "../../type"
 
 const fetchTodos = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos/")
+  // 等同于，默认缓存策略{ cache: 'force-cache' }
+  // const res = await fetch("https://jsonplaceholder.typicode.com/todos/",{ cache: 'force-cache' })
+  // 以及等同于pageDir中在getStaticProps请求数据
   const todos: Todo[] = await res.json()
 
   return todos
